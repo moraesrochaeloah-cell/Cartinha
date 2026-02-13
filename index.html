@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uma cartinha pra você 💌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+    overflow-x: hidden;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 40px;
+}
+
+.container {
+    padding: 30px;
+}
+
+.envelope {
+    width: 200px;
+    height: 130px;
+    background: #ffb6c1;
+    margin: 150px auto;
+    position: relative;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.envelope:before {
+    content: '';
+    position: absolute;
+    top: -65px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 65px solid #ff8fab;
+}
+
+.hidden {
+    display: none;
+}
+
+#letter {
+    animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.typewriter {
+    border-right: 2px solid #333;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 6s steps(60, end), blink .7s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    50% { border-color: transparent }
+}
+
+iframe {
+    margin-top: 30px;
+    width: 90%;
+    height: 400px;
+    border-radius: 15px;
+    border: none;
+}
+
+.heart {
+    position: fixed;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="start">
+    <div class="envelope" onclick="openLetter()"></div>
+    <p>Você recebeu uma cartinha… 💌</p>
+</div>
+
+<div id="letter" class="hidden container">
+    <h1>Para você 🤍</h1>
+    <p class="typewriter">
+        Eu só queria te lembrar o quanto você é importante pra mim.  
+        Cada momento ao seu lado se torna especial.  
+        Obrigada por existir na minha vida. 💕
+    </p>
+
+    <!-- COLOQUE SEU LINK DO CANVA AQUI -->
+    <iframe src="COLE_AQUI_O_LINK_DO_CANVA_EMBUTIDO"></iframe>
+
+    <h2 style="margin-top:40px;">Com carinho,  
+    Eloah 💗</h2>
+</div>
+
+<script>
+function openLetter() {
+    document.getElementById("start").style.display = "none";
+    document.getElementById("letter").classList.remove("hidden");
+}
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
